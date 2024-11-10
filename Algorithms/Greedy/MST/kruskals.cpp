@@ -50,7 +50,7 @@ public:
 
 int kruskalMST(int V, const std::vector<Edge> &edges)
 {
-  std::vector<Edge> sortedEdges = edges;
+  auto sortedEdges = edges;
   std::sort(sortedEdges.begin(), sortedEdges.end());
 
   UnionFind uf(V);
@@ -72,7 +72,11 @@ int kruskalMST(int V, const std::vector<Edge> &edges)
 int main()
 {
   int V = 4;
-  std::vector<Edge> edges = {{0, 1, 10}, {0, 2, 6}, {0, 3, 5}, {1, 3, 15}, {2, 3, 4}};
+  std::vector<Edge> edges = {{0, 1, 10}, 
+                             {0, 2, 6}, 
+                             {0, 3, 5}, 
+                             {1, 3, 15}, 
+                             {2, 3, 4}};
 
   int mstWeight = kruskalMST(V, edges);
   std::cout << "Total weight of MST is " << mstWeight << std::endl;
