@@ -1,0 +1,9 @@
+# Ignore executables
+*.out
+*.exe
+*.b
+*.o
+*.a
+*.so
+*.dll
+
