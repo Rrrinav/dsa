@@ -4,12 +4,9 @@
 #include <queue>
 #include <vector>
 
-typedef std::vector<std::vector<std::pair<int, int>>> Graph;
-
 const int INF = std::numeric_limits<int>::max();
-
-// > graph : adjacency list of graph graph[i] = { (j, c), .... }
-void least_cost_search(int start, const Graph &graph)
+typedef std::vector<std::vector<std::pair<int, int>>> Graph;
+std::vector<int> least_cost_search(int start, const Graph &graph)
 {
   int n = graph.size();
   std::vector<int> distance(n, INF);
@@ -43,13 +40,7 @@ void least_cost_search(int start, const Graph &graph)
       }
     }
   }
-
-  std::cout << "Shortest path costs from node " << start << ":\n\n";
-  for (int i = 0; i < n; ++i)
-    if (distance[i] == INF)
-      std::cout << "Node " << i << ": unreachable\n";
-    else
-      std::cout << "Node " << i << ": " << distance[i] << "\n";
+  return distance;
 }
 
 int main(void)
