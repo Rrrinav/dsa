@@ -1,23 +1,31 @@
-#include <vector>
-
-typedef std::vector<std::vector<int>> Edge_data;
-
-class Graph
-{
-  Edge_data edges;
-
-public:
-  Graph() {}
-  Graph(const Edge_data &edges) : edges(edges) {}
-  Graph(size_t n) : edges(n) {}
-
-
-};
+#include "./adj_list.hpp"
 
 int main()
 {
-  std::vector<std::vector<int>> edges = {{1, 2}, {2, 3}, {3, 4}, {4, 5}, {5, 6}};
+  Graph g(6, false);  // Change to `true` for a directed graph
 
-  Graph g;
+  g.add_edge(0, 1);
+  g.add_edge(0, 2);
+  g.add_edge(1, 3);
+  g.add_edge(2, 4);
+  g.add_edge(4, 5);
+
+  g.print_graph();
+
+  auto dfs_result = g.dfs(0);
+  std::cout << "DFS Traversal: ";
+  for (int node : dfs_result) std::cout << node << " ";
+  std::cout << std::endl;
+
+  auto bfs_result = g.bfs(0);
+  std::cout << "BFS Traversal: ";
+  for (int node : bfs_result) std::cout << node << " ";
+  std::cout << std::endl;
+
+  if (g.is_connected())
+    std::cout << "The graph is connected." << std::endl;
+  else
+    std::cout << "The graph is not connected." << std::endl;
+
   return 0;
 }
