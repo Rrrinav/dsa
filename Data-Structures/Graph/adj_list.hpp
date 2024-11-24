@@ -3,20 +3,30 @@
 #include <queue>
 #include <vector>
 
-class Graph
+class Graph_list
 {
 private:
   std::vector<std::vector<int>> _adj_list;  // Adjacency list
   bool _is_directed;                        // Flag for directed/undirected graph
 
 public:
-  Graph(size_t vertices, bool isDirected = false) : _adj_list(vertices), _is_directed(isDirected) {}
+  Graph_list(size_t vertices, bool isDirected = false) : _adj_list(vertices), _is_directed(isDirected) {}
 
   void add_edge(int u, int v)
   {
     _adj_list[u].push_back(v);
     if (!_is_directed)
       _adj_list[v].push_back(u);  // Add reverse edge for undirected graph
+  }
+
+  size_t get_size() const
+  {
+    return _adj_list.size();
+  }
+
+  std::vector<int> get_neighbors(int u) const
+  {
+    return _adj_list[u];
   }
 
   void delete_edge(int u, int v)

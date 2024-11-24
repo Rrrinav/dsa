@@ -3,7 +3,7 @@
 
 int main()
 {
-  Graph g(6, false);  // Change to `true` for a directed graph
+  Graph_list g(6, false);  // Change to `true` for a directed graph
   std::cout << "\nAdjacency List:\n";
   g.add_edge(0, 1);
   g.add_edge(0, 2);

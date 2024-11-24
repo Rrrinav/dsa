@@ -26,6 +26,16 @@ public:
     if (!_is_directed)
       _adj_matrix[v][u] = 1;
   }
+  std::vector<int> get_neighbors(int u) const
+  {
+    std::vector<int> neighbors;
+
+    for (int v = 0; v < _V; ++v)
+      if (_adj_matrix[u][v])
+        neighbors.push_back(v);
+
+    return neighbors;
+  }
 
   // Delete an edge
   void delete_edge(int u, int v)
