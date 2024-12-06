@@ -9,8 +9,8 @@ Basically a collection of whatever I study in DSA, this won't have any questions
 ## TODOs
 
 - [x] Travelling salesman problem (DP)
-- [ ] Travelling salesman problem (B&B)
-- [ ] Bellman-Ford
-- [ ] 8-queens
-- [ ] Longest common subsequence
+- [x] Travelling salesman problem (B&B)
+- [x] Bellman-Ford (DP)
+- [ ] 8-queens (Backtracking)
+- [x] Longest common subsequence (DP)
 - [ ] Computational complexity
